@@ -1,0 +1,5 @@
+name: SortPlugin
+main: com.simplyapps.sortplugin.SortPlugin
+version: 1.8.7
+description: Adds sorting commands for chests and inventory
+api-version: '1.13'
