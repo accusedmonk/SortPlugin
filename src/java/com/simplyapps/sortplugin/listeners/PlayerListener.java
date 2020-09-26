@@ -17,15 +17,16 @@ public class PlayerListener implements Listener {
     ClickType clicktype = e.getClick();
 
     if (clicktype == ClickType.MIDDLE) {
-      System.out.println(player.getOpenInventory().getType().toString());
-      if (player.getOpenInventory().getType() == InventoryType.CHEST) {
+      if (e.getClickedInventory() == null) return;
+
+      if (e.getClickedInventory().getType() == InventoryType.CHEST) {
         SortManager.sortChestInventory(player);
 
         player.updateInventory();
-      } else if (
-        player.getOpenInventory().getType() == InventoryType.CRAFTING
-      ) {
+      } else if (e.getClickedInventory().getType() == InventoryType.PLAYER) {
         SortManager.sortPlayerInventory(player);
+
+        player.updateInventory();
       }
     }
   }
